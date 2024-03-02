@@ -1,0 +1,5 @@
+C:/Users/User/Desktop/UnityProject/FallDown/.utmp/RelWithDebInfo/6y523v4h/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/UnityProject/FallDown/.utmp/RelWithDebInfo/6y523v4h/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/User/Desktop/UnityProject/FallDown/.utmp/RelWithDebInfo/6y523v4h/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+C:/Users/User/Desktop/UnityProject/FallDown/.utmp/RelWithDebInfo/6y523v4h/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/UnityProject/FallDown/.utmp/RelWithDebInfo/6y523v4h/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
