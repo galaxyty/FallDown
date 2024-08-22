@@ -4,7 +4,6 @@ using UnityEngine;
 using BaseRPG_V1;
 using Photon.Realtime;
 using Photon.Pun;
-using Unity.VisualScripting;
 
 public class Floor : BaseObject
 {

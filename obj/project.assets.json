@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    ".NETStandard,Version=v2.1": {}
+    ".NETStandard,Version=v2.1": {
+      "PhotonRealtime/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/PhotonRealtime.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PhotonRealtime.dll": {}
+        }
+      },
+      "PhotonUnityNetworking/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "PhotonRealtime": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PhotonUnityNetworking.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PhotonUnityNetworking.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PhotonRealtime/1.0.0": {
+      "type": "project",
+      "path": "PhotonRealtime.csproj",
+      "msbuildProject": "PhotonRealtime.csproj"
+    },
+    "PhotonUnityNetworking/1.0.0": {
+      "type": "project",
+      "path": "PhotonUnityNetworking.csproj",
+      "msbuildProject": "PhotonUnityNetworking.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETStandard,Version=v2.1": []
+    ".NETStandard,Version=v2.1": [
+      "PhotonRealtime >= 1.0.0",
+      "PhotonUnityNetworking >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\User\\.nuget\\packages\\": {}
@@ -13,9 +51,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonRealtime.csproj",
-      "projectName": "PhotonRealtime",
-      "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonRealtime.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Editor.csproj",
+      "projectName": "PhotonUnityNetworking.Editor",
+      "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Editor.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\obj\\",
       "projectStyle": "PackageReference",
@@ -33,7 +71,14 @@
       "frameworks": {
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonRealtime.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonRealtime.csproj"
+            },
+            "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

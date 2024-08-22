@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VTGvGASh/lPsrmn4G8OY2LgPai4+HZ+qhKSIO6YVlpcC/MwDXfZSiI1mAjH5E3zPtXhKwNwvqVzfMjUCrQ8/RQ==",
+  "dgSpecHash": "htamE4Zqg1IFGtvPbJCoH9vftZXH1AV6CMQHNCf8ihTydKHFrgnka0LLxli09rp6VFCYv3sh6il+9N5ak3azeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonRealtime.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Editor.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
