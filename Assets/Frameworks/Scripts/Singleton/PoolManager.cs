@@ -185,6 +185,12 @@ public class PoolManager : BaseSingleton<PoolManager>
     // 풀 오브젝트로 돌려보낸다.
     public void Push(BaseObject obj)
     {
+        // 포톤 함수로 인하여 풀매니저가 null인 상태에서 이게 호출 되서 Missing 오류 뜨는 경우가 있기에 조건문 넣어줌.
+        if (this == null)
+        {
+            return;
+        }
+
         // UI 기본 좌표.
         Vector3 vector = Vector3.zero;
 

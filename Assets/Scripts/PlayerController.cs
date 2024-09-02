@@ -5,8 +5,10 @@ using BaseRPG_V1;
 using Photon.Pun;
 using UnityEngine.UI;
 
-public class PlayerController : BasePlayerCharacter
+public class PlayerController : BasePlayerCharacter, IPunObservable
 {
+    public static int playerCount;
+
     public enum kANI_STATE
     {
         None,
@@ -27,6 +29,8 @@ public class PlayerController : BasePlayerCharacter
     [SerializeField]
     private Animator m_Animator;
 
+    private bool isPlayerCount = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +40,7 @@ public class PlayerController : BasePlayerCharacter
         }
 
         m_TextOfNickname.text = PV.IsMine ? PhotonNetwork.NickName : PV.Owner.NickName;
-        m_TextOfNickname.color = PV.IsMine ? Color.green : Color.red;
+        m_TextOfNickname.color = PV.IsMine ? Color.green : Color.red;        
     }
 
     // Update is called once per frame
@@ -45,6 +49,13 @@ public class PlayerController : BasePlayerCharacter
         if (m_Joystick == null)
         {
             return;
+        }
+
+        if (playerCount == 1)
+        {
+            GameManager.Instance.STATE = GameManager.kSTATE.WINNER;
+            isPlayerCount = false;
+            Debug.Log("게임 승리 작동을 시작합니다");
         }
 
         Ani_State = kANI_STATE.Idle;
@@ -56,12 +67,43 @@ public class PlayerController : BasePlayerCharacter
 
         m_Animator.SetInteger("State", (int)Ani_State);
 
+        if (GameManager.Instance.STATE == GameManager.kSTATE.PLAY)
+        {
+            // 인원 넣기.
+            if (isPlayerCount == false)
+            {
+                playerCount = PhotonNetwork.CurrentRoom.PlayerCount;
+
+                isPlayerCount = true;
+            }
+        }
+
         if (transform.localPosition.y <= Constants.kGAMEOVER_POSITION)
         {
+            // 게임 오버.
             if (GameManager.Instance.STATE == GameManager.kSTATE.PLAY)
             {
-                GameManager.Instance.STATE = GameManager.kSTATE.DIS_PLAY;
+                --playerCount;
+
+                GameManager.Instance.STATE = GameManager.kSTATE.END_PLAY;
+                isPlayerCount = false;
             }
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // 데이터를 네트워크에 전송합니다
+            stream.SendNext(playerCount);
+            Debug.Log("sssssssss 전송 : " + playerCount + " / " + transform.name);
+        }
+        else
+        {
+            // 데이터를 네트워크에서 수신합니다
+            playerCount = (int)stream.ReceiveNext();
+            Debug.Log("sssssssss 수신 : " + playerCount + " / " + transform.name);
         }
     }
 }

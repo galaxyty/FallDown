@@ -4,7 +4,6 @@ using UnityEngine;
 using BaseRPG_V1;
 using Photon.Pun;
 using Photon.Realtime;
-using Unity.VisualScripting;
 
 public class GameManager : BaseSingleton<GameManager>
 {
@@ -14,8 +13,9 @@ public class GameManager : BaseSingleton<GameManager>
         IDLE,           // 대기 중.
         INIT_PLAY,      // 게임 셋팅.
         PLAY,           // 게임 진행 중.
-        DIS_PLAY,       // 게임 진행 끝.
+        END_PLAY,       // 게임 진행 끝.
         GAMEOVER,       // 게임 오버.
+        WINNER,         // 게임 승리.
     }
 
     public kSTATE STATE = kSTATE.NONE;
@@ -32,12 +32,17 @@ public class GameManager : BaseSingleton<GameManager>
             case kSTATE.PLAY:
                 break;
             
-            case kSTATE.DIS_PLAY:
+            case kSTATE.END_PLAY:
                 StartCoroutine(ERoomLeave());
                 STATE = kSTATE.GAMEOVER;
                 break;
             
             case kSTATE.GAMEOVER:
+                break;
+            
+            case kSTATE.WINNER:
+                StartCoroutine(EWinRoomLeave());
+                Debug.Log("게임 승리 작동 완료");
                 break;
             
             default:
@@ -71,6 +76,14 @@ public class GameManager : BaseSingleton<GameManager>
     IEnumerator ERoomLeave()
     {
         LoadingManager.Instance.LoadingOn("당신은 탈락하였습니다. 3초후 룸으로 이동합니다.");
+        yield return new WaitForSeconds(3.0f);
+        PhotonNetwork.LeaveRoom();
+    }
+
+    // 게임 승리.
+    IEnumerator EWinRoomLeave()
+    {
+        LoadingManager.Instance.LoadingOn("최종 승리하셨습니다!!! 3초후 룸으로 이동합니다.");
         yield return new WaitForSeconds(3.0f);
         PhotonNetwork.LeaveRoom();
     }

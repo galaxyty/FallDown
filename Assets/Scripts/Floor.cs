@@ -24,17 +24,18 @@ public class Floor : BaseObject
 
     public override void Initialization()
     {
-        
+        m_Rigidbody.isKinematic = true;
     }
 
     public override void DisposeObject()
     {
-        
+        m_Rigidbody.isKinematic = false;
     }
 
     void Start()
     {
-        transform.localScale = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);        
+        transform.localScale = new Vector3(m_ScaleX, m_ScaleY, m_ScaleZ);
+        m_Rigidbody.isKinematic = true;
     }
 
     // 닿으면 해제.

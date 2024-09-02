@@ -35,12 +35,22 @@ public class BGMManager : BaseSingleton<BGMManager>
     // BGM 정지.
     public void Stop()
     {
+        if (m_Source == null)
+        {
+            return;
+        }
+
         m_Source.Stop();
     }
 
     // BGM 일시 정지.
     public void Pause()
     {
+        if (m_Source == null)
+        {
+            return;
+        }
+        
         m_Source.Pause();
     }
 }
