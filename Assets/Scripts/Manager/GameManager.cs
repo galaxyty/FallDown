@@ -42,6 +42,7 @@ public class GameManager : BaseSingleton<GameManager>
             
             case kSTATE.WINNER:
                 StartCoroutine(EWinRoomLeave());
+                STATE = kSTATE.GAMEOVER;
                 Debug.Log("게임 승리 작동 완료");
                 break;
             

@@ -24,6 +24,20 @@
         "runtime": {
           "bin/placeholder/PhotonUnityNetworking.dll": {}
         }
+      },
+      "PhotonUnityNetworking.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "PhotonRealtime": "1.0.0",
+          "PhotonUnityNetworking": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PhotonUnityNetworking.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PhotonUnityNetworking.Utilities.dll": {}
+        }
       }
     }
   },
@@ -37,12 +51,18 @@
       "type": "project",
       "path": "PhotonUnityNetworking.csproj",
       "msbuildProject": "PhotonUnityNetworking.csproj"
+    },
+    "PhotonUnityNetworking.Utilities/1.0.0": {
+      "type": "project",
+      "path": "PhotonUnityNetworking.Utilities.csproj",
+      "msbuildProject": "PhotonUnityNetworking.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "PhotonRealtime >= 1.0.0",
-      "PhotonUnityNetworking >= 1.0.0"
+      "PhotonUnityNetworking >= 1.0.0",
+      "PhotonUnityNetworking.Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -51,9 +71,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Editor.csproj",
-      "projectName": "PhotonUnityNetworking.Editor",
-      "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Editor.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Demos.csproj",
+      "projectName": "PhotonUnityNetworking.Demos",
+      "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Demos.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\obj\\",
       "projectStyle": "PackageReference",
@@ -77,6 +97,9 @@
             },
             "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.csproj": {
               "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.csproj"
+            },
+            "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Utilities.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\UnityProject\\FallDown\\PhotonUnityNetworking.Utilities.csproj"
             }
           }
         }

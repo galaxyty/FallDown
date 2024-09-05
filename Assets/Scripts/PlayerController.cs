@@ -49,14 +49,7 @@ public class PlayerController : BasePlayerCharacter, IPunObservable
         if (m_Joystick == null)
         {
             return;
-        }
-
-        if (playerCount == 1)
-        {
-            GameManager.Instance.STATE = GameManager.kSTATE.WINNER;
-            isPlayerCount = false;
-            Debug.Log("게임 승리 작동을 시작합니다");
-        }
+        }        
 
         Ani_State = kANI_STATE.Idle;
 
@@ -78,15 +71,22 @@ public class PlayerController : BasePlayerCharacter, IPunObservable
             }
         }
 
+        if (GameManager.Instance.STATE == GameManager.kSTATE.PLAY && playerCount == 1)
+        {
+            GameManager.Instance.STATE = GameManager.kSTATE.WINNER;
+            isPlayerCount = false;
+            Debug.Log("게임 승리 작동을 시작합니다");
+        }
+
         if (transform.localPosition.y <= Constants.kGAMEOVER_POSITION)
         {
             // 게임 오버.
             if (GameManager.Instance.STATE == GameManager.kSTATE.PLAY)
             {
-                --playerCount;
-
                 GameManager.Instance.STATE = GameManager.kSTATE.END_PLAY;
                 isPlayerCount = false;
+                
+                --playerCount;                
             }
         }
     }
